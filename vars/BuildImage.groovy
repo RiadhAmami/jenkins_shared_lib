@@ -7,4 +7,6 @@ def call() {
         sh "echo $PASS | docker login https://docker.galactechstudio.com -u $USER --password-stdin"
         sh 'docker push nexus.galactechstudio.com/demo-app:jma-2.0'
     }
+
+
 }
