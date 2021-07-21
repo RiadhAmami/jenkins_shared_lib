@@ -1,10 +1,10 @@
 #!/usr/bin/env groovy
 
-def call(String imageName,String dockerRep) {
+def call(String imagename) {
     echo "building the docker image..."
     withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        sh "docker build -t $imageName ."
-        sh "echo $PASS | docker login $dockerRep -u $USER --password-stdin"
+        sh "docker build -t $imagename ."
+        sh "echo $PASS | docker login https://docker.galactechstudio.com -u $USER --password-stdin"
         sh 'docker push docker.galactechstudio.com/demo-app:jma-2.0'
     }
 
