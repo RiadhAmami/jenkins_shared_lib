@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
-import com.example.Docker
-def call(String imagename) {
-    return new Docker(this).buildimg(imagename)
+import tn.galactech.Docker
+def call(String imagename,String buildfile="Dockerfile",String diractory=".") {
+    return new Docker(this).buildimg(imagename,buildfile,diractory)
 
 }
